@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PaymentAPI.Models
 {
@@ -6,9 +7,17 @@ namespace PaymentAPI.Models
     {
         [Key]
         public int PaymentDetailId { get; set; }
-        public int CardOwnerName  { get; set; }
-        public int CardNumber  { get; set; }
-        public int ExpirationDate  { get; set; }
-        public int SecurityCode  { get; set; }
+
+        [Column(TypeName ="nvarchar(100)")]
+        public string CardOwnerName { get; set; } = "";
+
+        [Column(TypeName = "nvarchar(16)")]
+        public string CardNumber  { get; set; } = "";
+
+        [Column(TypeName = "nvarchar(5)")]
+        public string ExpirationDate  { get; set; } = "";
+
+        [Column(TypeName = "nvarchar(3)")]
+        public string SecurityCode  { get; set; } = "";
     }
 }
